@@ -37,10 +37,11 @@ jobs:
 
       - name: Print Analysis Report
         if: always()
-        run: cat crda_analysis_report.json
+        run: cat ${{ steps.scan.outputs.crda_report_json }}
 
       - name: Print Sarif
-        run: cat output.sarif
+        if: always()
+        run: cat ${{ steps.scan.outputs.crda_report_sarif }}
 
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
