@@ -50,7 +50,7 @@ jobs:
 
       - name: Save intermediate files
         run: |
-          mkdir -p uploads_java
+          mkdir -p uploads
           mv ${{ steps.scan.outputs.crda_report_json }} uploads
           mv ${{ steps.scan.outputs.crda_report_sarif }} uploads
 
